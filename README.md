@@ -11,7 +11,6 @@ Pain Point 1 — OTA Cost Impact
 OTA Booking Share (%)  = (OTA Bookings / Total Bookings) × 100
 OTA Revenue Share (%)  = (OTA Revenue / Total Revenue) × 100
 
-Commission Rate (%)    = 11–13%
 Total Commission       = OTA Revenue × Commission Rate
 
 Net OTA Revenue        = OTA Revenue - Total Commission
