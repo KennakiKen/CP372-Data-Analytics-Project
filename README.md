@@ -57,5 +57,31 @@ Premium Revenue Leakage (%) = OTA Premium Share × Commission Rate
 - โครงสร้างรายได้ไม่ยั่งยืน (Unsustainable Revenue Mix)
 รายได้ส่วนใหญ่พึ่งพาช่องทางที่มีต้นทุนสูง ทำให้การเติบโตของรายได้ไม่แปลว่ากำไรเพิ่ม
 ## SMART Objectives
+```c#
+- S (Specific) 
+ลดการพึ่งพา OTA และเพิ่มสัดส่วน Direct Booking 
+โดยวิเคราะห์ Booking Channel, Rate Code และ Day Type 
+เพื่อปรับ Pricing และ Channel Mix ให้ลด Commission และเพิ่มรายได้สุทธิ
 
+- M (Measurable)
+ลด OTA Booking Share จาก 57.3% เหลือไม่เกิน 45% 
+และเพิ่ม Net ADR อย่างน้อย 10% 
+โดยวัดจากการเปรียบเทียบ Net ADR ก่อนและหลังการปรับกลยุทธ์ 
+รวมถึงติดตาม Commission Cost และ Cost of Acquisition (COA%) เป็นตัวชี้วัดสนับสนุน
+
+- A (Achievable)
+ใช้ข้อมูลการจองวิเคราะห์พฤติกรรมลูกค้า OTA และ Direct 
+เพื่อระบุโอกาสในการ shift demand 
+และปรับกลยุทธ์ เช่น การทำ Direct Promotion, Remarketing ไปยังลูกค้าเดิม, 
+การปรับ Pricing ตามช่วงเวลาและ demand รวมถึงการปรับ Channel Mix 
+เพื่อเพิ่มสัดส่วน Direct Booking และลดต้นทุนจาก Commission
+
+- R (Relevant)
+สอดคล้องกับเป้าหมายในการเพิ่ม Net Revenue 
+โดยลดต้นทุนจาก Commission และปรับ Channel Mix 
+เพื่อเพิ่มประสิทธิภาพในการทำกำไร
+
+- T (Time-bound)
+ดำเนินการวิเคราะห์และปรับกลยุทธ์ให้เห็นผลภายใน 6 เดือน 
+```
 
