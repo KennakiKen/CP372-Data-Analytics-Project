@@ -57,7 +57,7 @@ Premium Revenue Leakage (%) = OTA Premium Share × Commission Rate
 - โครงสร้างรายได้ไม่ยั่งยืน (Unsustainable Revenue Mix)
 รายได้ส่วนใหญ่พึ่งพาช่องทางที่มีต้นทุนสูง ทำให้การเติบโตของรายได้ไม่แปลว่ากำไรเพิ่ม
 ## SMART Objectives
-```c#
+```
 - S (Specific) 
 ลดการพึ่งพา OTA และเพิ่มสัดส่วน Direct Booking 
 โดยวิเคราะห์ Booking Channel, Rate Code และ Day Type 
