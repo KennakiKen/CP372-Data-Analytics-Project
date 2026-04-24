@@ -84,8 +84,76 @@ Low-Cost Revenue Share (%)  = Direct Revenue Share
 1. การจองผ่านช่องทาง Direct Website แม้จะมีต้นทุนการตลาด แต่ให้ค่า Net ADR สูงกว่าการจองผ่าน OTA อย่างมีนัยสำคัญ
 2. กลุ่มลูกค้า Leisure ที่จองห้องพักประเภทราคาแพง (Suite) มีแนวโน้มที่จะจองผ่าน OTA มากกว่าช่องทางอื่น ซึ่งทำให้โรงแรมเสีย Gross Revenue ส่วนใหญ่ไปกับค่า Commission
 3. ต้นทุนการตลาด (Marketing Cost Rate) ของ Direct Website บนบาง Platform (เช่น Google Ads) ต่ำกว่าอัตราค่าคอมมิชชั่นเฉลี่ยของ OTA ในช่วงเวลาที่มี Demand สูง
-## Analytical Approach
+## Analytical
 - ทำ A/B Testing Grouping ระหว่างกลุ่ม OTA กับ Direct เพื่อดูส่วนต่าง
 - คำนวณ Opportunity Gain จาก Suite จาก OTA เป็น Direct
 - ทำ Platform Efficiency Matrix เพื่อจัดเกรด Platform ที่ควร เพิ่มหรือลดงบ
+
+# Section 3: Data Execution & EDA
+## Data Schema & Relationships
+ข้อมูลถูกจัดลำดับโดยมีตาราง fact_booking เป็นศูนย์กลางเชื่อมโยงกับตารางอื่นๆ ด้วยรหัส ID
+- ตารางหลัก (Fact Tables): เก็บข้อมูลธุรกรรมจริง คือ fact_booking (1000 rows) และ fact_marketing_spend (100 rows)
+- ตารางรายละเอียด (Dimension Tables): ให้ข้อมูลขยายความ ได้แก่ dim_channels (ช่องทาง), dim_rate_codes (ประเภทราคา), dim_room_types (ประเภทห้องพัก), และ dim_segments (กลุ่มลูกค้า)
+
+# Data Dictionary: Hotel Booking & Marketing Dataset
+ในการสร้างชุดข้อมูลนี้ ได้มีการใช้ Prompt 
+```
+สร้างฐานข้อมูลจำลองสำหรับโรงแรม เพื่อวิเคราะห์ Channel Profitability ประกอบด้วยตาราง fact_bookings 1000 แถว ที่มีข้อมูลการเงิน (Gross Revenue, Commission, Net Revenue), ตาราง dim_channels ที่ระบุรูปแบบค่าคอมมิชชั่น (Percentage, Flat Fee, Net Rate), ตาราง dim_rate_codes ที่จำแนกประเภทราคา และตาราง fact_marketing_spend เพื่อคำนวณต้นทุนการตลาดของช่องทาง Direct โดยข้อมูลต้องมีความสัมพันธ์กันอย่างถูกต้องเพื่อใช้วิเคราะห์ ADR, Occupancy และ COA%
+```
+
+
+## 1. Table: fact_booking
+ตารางหลักที่เก็บข้อมูลธุรกรรมการจองห้องพัก (Main Fact Table)
+
+| Column | Data Type | Description | Example |
+| :--- | :--- | :--- | :--- |
+| **booking_id** | Nominal (String) | รหัสอ้างอิงการจองที่ไม่ซ้ำกัน (Primary Key) | RES-00001, RES-00002, RES-00003 |
+| **guest_id** | Nominal (String) | รหัสอ้างอิงลูกค้า | G0001, G0002, G0003 |
+| **booking_date** | Interval (Date) | วันที่ลูกค้าทำรายการจองห้องพัก | 2025-02-10, 2025-01-28, 2025-02-11 |
+| **check_in_date** | Interval (Date) | วันที่ลูกค้ามีกำหนดเข้าพัก | 2025-02-14, 2025-01-30, 2025-03-06 |
+| **check_out_date** | Interval (Date) | วันที่ลูกค้ามีกำหนดออกจากที่พัก | 2025-02-15, 2025-01-31, 2025-03-09 |
+| **room_type_id** | Nominal (String) | รหัสประเภทห้องพัก | RM01, RM02, RM03 |
+| **rate_code_id** | Nominal (String) | รหัสเรทราคา | RT01, RT02, RT03 |
+| **channel_id** | Nominal (String) | รหัสช่องทางการจอง | CH01, CH02, CH03 |
+| **segment_id** | Nominal (String) | รหัสกลุ่มลูกค้า | SG01, SG02, SG03 |
+| **status** | Nominal (String) | สถานะการจอง | Checked-Out, Cancelled, No-Show |
+| **gross_room_revenue** | Ratio (Numeric) | รายได้ค่าห้องรวมก่อนหักค่าคอมมิชชั่น | 100, 250, 450 |
+| **commission_amount** | Ratio (Numeric) | จำนวนเงินค่าคอมมิชชั่นที่จ่ายให้ตัวแทน | 0.0, 20.0, 68.0 |
+| **net_room_revenue** | Ratio (Numeric) | รายได้สุทธิที่โรงแรมได้รับจริง | 80.0, 250.0, 332.0 |
+| **number_of_rooms** | Ratio (Numeric) | จำนวนห้องพักที่จอง | 1, 2 |
+| **adults_count** | Ratio (Numeric) | จำนวนผู้ใหญ่ที่เข้าพัก | 1, 2 |
+| **children_count** | Ratio (Numeric) | จำนวนเด็กที่เข้าพัก | 0, 1, 2 |
+
+## 2. Table: fact_marketing_spend
+ตารางที่เก็บข้อมูลค่าใช้จ่ายและประสิทธิภาพของแคมเปญการตลาด
+
+| Column | Data Type | Description | Example |
+| :--- | :--- | :--- | :--- |
+| **spend_id** | Nominal (String) | รหัสอ้างอิงรายการค่าใช้จ่ายการตลาด | SP-0001, SP-0002, SP-0003 |
+| **spend_date** | Interval (Date) | วันที่เกิดรายการค่าใช้จ่ายโฆษณา | 2025-01-09, 2025-02-18, 2025-02-01 |
+| **channel_id** | Nominal (String) | รหัสช่องทางที่เกี่ยวข้อง | CH04 |
+| **platform** | Nominal (String) | แพลตฟอร์มที่ใช้ลงโฆษณาออนไลน์ | Facebook, Instagram, Google Ads |
+| **cost_amount** | Ratio (Numeric) | จำนวนเงินงบประมาณที่ใช้ไปจริง | 967, 361, 583 |
+| **clicks** | Ratio (Numeric) | จำนวนคลิกที่ได้รับจากการโฆษณา | 460, 110, 383 |
+
+## 3. Dimension Tables
+ตารางสนับสนุนที่ใช้สำหรับจำแนกหมวดหมู่ข้อมูล (Contextual Data)
+
+### dim_channels
+| Column | Data Type | Description | Example |
+| :--- | :--- | :--- | :--- |
+| **channel_name** | Nominal (String) | ชื่อช่องทางการจอง | Booking.com, Expedia, Agoda, Direct Website |
+| **channel_type** | Nominal (String) | หมวดหมู่ช่องทาง | OTA, Direct, Offline |
+
+### dim_room_types
+| Column | Data Type | Description | Example |
+| :--- | :--- | :--- | :--- |
+| **room_type_name** | Nominal (String) | ชื่อเรียกประเภทห้องพัก | Standard, Deluxe, Suite |
+| **base_price** | Ratio (Numeric) | ราคาตั้งต้นของห้องพัก | 100, 150, 250 |
+
+---
+
+
+
+
 
