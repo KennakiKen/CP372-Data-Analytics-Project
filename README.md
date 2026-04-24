@@ -37,3 +37,57 @@
 ```
 # Section 2: Analytical Design
 ## Hypothesis & Method
+## Business Problem
+โรงแรมมีต้นทุน (Distribution Cost) สูงจากการพึ่งพา OTA ซึ่งมีค่า Commission สูง แม้จะสร้างยอดการจองจำนวนมาก ขณะที่ Direct Channel แม้ไม่มี Commission แต่มีต้นทุนด้าน Marketing สูง 
+ส่งผลให้ Net Revenue ลดลงและโครงสร้างกำไรไม่มีประสิทธิภาพ
+## Business Goal
+เพิ่ม Net Revenue โดยลดต้นทุนจาก Commission อย่างน้อย 10% ภายใน 6 เดือน 
+## Key Metrics
+```
+ADR (Average Daily Rate) = Gross Room Revenue / Rooms Sold
+OCC (Occupancy Rate) = (Rooms Sold / Total Rooms) × 100  
+Net ADR = (Gross Revenue - Commission Cost) / Rooms Sold
+Net RevPAR = (Gross Revenue - Commission Cost) / Total Rooms Available
+Direct Revenue Share (%) = Direct Revenue / Total Revenue
+```
+```red
+
+1 OTA Cost Impact
+
+OTA Booking Share (%)  = (OTA Bookings / Total Bookings) × 100
+OTA Revenue Share (%)  = (OTA Revenue / Total Revenue) × 100
+Total Commission       = OTA Revenue × Commission Rate
+Net OTA Revenue        = OTA Revenue - Total Commission
+Effective OTA Cost (%) = (Total Commission / Total Revenue) × 100
+```
+
+```red
+2 Direct Channel มีต้นทุนแฝงสูงจาก Marketing
+Direct Revenue = Total Direct Revenue
+Marketing Cost = Total Marketing Spend
+Marketing Cost Rate (%) = (Marketing Cost / Direct Revenue) × 100
+Net Direct Revenue      = Direct Revenue - Marketing Cost
+Effective Direct Cost (%) = (Marketing Cost / Total Revenue) × 100
+```
+
+```red
+3 โครงสร้างรายได้กระจุกในช่องทางที่มีต้นทุนสูง
+OTA Revenue Share (%)    = (OTA Revenue / Total Revenue) × 100
+Direct Revenue Share (%) = (Direct Revenue / Total Revenue) × 100
+High-Cost Revenue Share (%) = OTA Revenue Share
+Low-Cost Revenue Share (%)  = Direct Revenue Share
+```
+## Dimension
+- Booking Status 
+- Booking Channel (Agoda, Booking.com, Direct, Corporate)
+- Room Type (Standard, Deluxe, Suite)
+- Segment (Leisure, Business, Group)
+- Platform (Google, FB, IG) 
+## Hypotheses
+1. การจองผ่านช่องทาง Direct Website แม้จะมีต้นทุนการตลาด แต่ให้ค่า Net ADR สูงกว่าการจองผ่าน OTA อย่างมีนัยสำคัญ
+2. กลุ่มลูกค้า Leisure ที่จองห้องพักประเภทราคาแพง (Suite) มีแนวโน้มที่จะจองผ่าน OTA มากกว่าช่องทางอื่น ซึ่งทำให้โรงแรมเสีย Gross Revenue ส่วนใหญ่ไปกับค่า Commission
+3. ต้นทุนการตลาด (Marketing Cost Rate) ของ Direct Website บนบาง Platform (เช่น Google Ads) ต่ำกว่าอัตราค่าคอมมิชชั่นเฉลี่ยของ OTA ในช่วงเวลาที่มี Demand สูง
+## Analytical Approach
+- ทำ A/B Testing Grouping ระหว่างกลุ่ม OTA กับ Direct เพื่อดูส่วนต่าง
+- คำนวณ Opportunity Gain จาก Suite จาก OTA เป็น Direct
+- ทำ Platform Efficiency Matrix เพื่อจัดเกรด Platform ที่ควร เพิ่มหรือลดงบ
