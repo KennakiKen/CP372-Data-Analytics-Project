@@ -51,9 +51,7 @@ Net RevPAR = (Gross Revenue - Commission Cost) / Total Rooms Available
 Direct Revenue Share (%) = Direct Revenue / Total Revenue
 ```
 ```red
-
 1 OTA Cost Impact
-
 OTA Booking Share (%)  = (OTA Bookings / Total Bookings) × 100
 OTA Revenue Share (%)  = (OTA Revenue / Total Revenue) × 100
 Total Commission       = OTA Revenue × Commission Rate
@@ -69,7 +67,6 @@ Marketing Cost Rate (%) = (Marketing Cost / Direct Revenue) × 100
 Net Direct Revenue      = Direct Revenue - Marketing Cost
 Effective Direct Cost (%) = (Marketing Cost / Total Revenue) × 100
 ```
-
 ```red
 3 โครงสร้างรายได้กระจุกในช่องทางที่มีต้นทุนสูง
 OTA Revenue Share (%)    = (OTA Revenue / Total Revenue) × 100
@@ -91,3 +88,4 @@ Low-Cost Revenue Share (%)  = Direct Revenue Share
 - ทำ A/B Testing Grouping ระหว่างกลุ่ม OTA กับ Direct เพื่อดูส่วนต่าง
 - คำนวณ Opportunity Gain จาก Suite จาก OTA เป็น Direct
 - ทำ Platform Efficiency Matrix เพื่อจัดเกรด Platform ที่ควร เพิ่มหรือลดงบ
+
