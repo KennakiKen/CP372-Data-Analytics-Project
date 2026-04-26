@@ -1,13 +1,13 @@
 
 # Problem 2: High Distribution Costs (Channel Profitability)
-# Section 1: Strategic Alignment
+### Section 1: Strategic Alignment
 
-## Background & Pain Points
+### Background & Pain Points
 - ธุรกิจโรงแรมที่จำหน่ายห้องพักผ่านหลายช่องทาง OTA Booking.com, Expedia, Direct Website, GDS และ Walk-in เพื่อเพิ่มยอดการจองและเข้าถึงลูกค้าได้หลากหลายกลุ่ม
 - อย่างไรก็ตาม โรงแรมกำลังเผชิญปัญหา High Distribution Costs เนื่องจากต้องจ่ายค่าคอมมิชชั่นในอัตราสูงให้กับช่องทาง OTA ซึ่งแม้ว่าจะสร้างยอดการจองได้มากแต่กลับมีต้นทุนสูง ส่งผลให้กำไรสุทธิลดลง
 - นอกจากนี้ โครงสร้าง Channel Mix ที่พึ่งพา OTA สูง ประกอบกับต้นทุนด้าน Marketing ของ Direct Channel ที่ยังไม่มีประสิทธิภาพ ทำให้เกิด Revenue Leakage และลดความสามารถในการทำกำไรโดยรวมของธุรกิจ
 
-## SMART Objectives
+### SMART Objectives
 ```
 - S (Specific) 
 ลดการพึ่งพา OTA และเพิ่มสัดส่วน Direct Booking 
@@ -36,13 +36,13 @@
 ดำเนินการวิเคราะห์และปรับกลยุทธ์ให้เห็นผลภายใน 6 เดือน 
 ```
 # Section 2: Analytical Design
-## Hypothesis & Method
-## Business Problem
+### Hypothesis & Method
+### Business Problem
 โรงแรมมีต้นทุน (Distribution Cost) สูงจากการพึ่งพา OTA ซึ่งมีค่า Commission สูง แม้จะสร้างยอดการจองจำนวนมาก ขณะที่ Direct Channel แม้ไม่มี Commission แต่มีต้นทุนด้าน Marketing สูง 
 ส่งผลให้ Net Revenue ลดลงและโครงสร้างกำไรไม่มีประสิทธิภาพ
 ## Business Goal
 เพิ่ม Net Revenue โดยลดต้นทุนจาก Commission อย่างน้อย 10% ภายใน 6 เดือน 
-## Key Metrics
+### Key Metrics
 ```
 ADR (Average Daily Rate) = Gross Room Revenue / Rooms Sold
 OCC (Occupancy Rate) = (Rooms Sold / Total Rooms) × 100  
@@ -74,35 +74,35 @@ Direct Revenue Share (%) = (Direct Revenue / Total Revenue) × 100
 High-Cost Revenue Share (%) = OTA Revenue Share
 Low-Cost Revenue Share (%)  = Direct Revenue Share
 ```
-## Dimension
+### Dimension
 - Booking Status 
 - Booking Channel (Agoda, Booking.com, Direct, Corporate)
 - Room Type (Standard, Deluxe, Suite)
 - Segment (Leisure, Business, Group)
 - Platform (Google, FB, IG) 
-## Hypotheses
+### Hypotheses
 1. การจองผ่านช่องทาง Direct Website แม้จะมีต้นทุนการตลาด แต่ให้ค่า Net ADR สูงกว่าการจองผ่าน OTA อย่างมีนัยสำคัญ
 2. กลุ่มลูกค้า Leisure ที่จองห้องพักประเภทราคาแพง (Suite) มีแนวโน้มที่จะจองผ่าน OTA มากกว่าช่องทางอื่น ซึ่งทำให้โรงแรมเสีย Gross Revenue ส่วนใหญ่ไปกับค่า Commission
 3. ต้นทุนการตลาด (Marketing Cost Rate) ของ Direct Website บนบาง Platform (เช่น Google Ads) ต่ำกว่าอัตราค่าคอมมิชชั่นเฉลี่ยของ OTA ในช่วงเวลาที่มี Demand สูง
-## Analytical
+### Analytical
 - ทำ A/B Testing Grouping ระหว่างกลุ่ม OTA กับ Direct เพื่อดูส่วนต่าง
 - คำนวณ Opportunity Gain จาก Suite จาก OTA เป็น Direct
 - ทำ Platform Efficiency Matrix เพื่อจัดเกรด Platform ที่ควร เพิ่มหรือลดงบ
 
 # Section 3: Data Execution & EDA 
-## Data Schema & Relationships
+### Data Schema & Relationships
 ข้อมูลถูกจัดลำดับโดยมีตาราง fact_booking เป็นศูนย์กลางเชื่อมโยงกับตารางอื่นๆ ด้วยรหัส ID
 - ตารางหลัก (Fact Tables): เก็บข้อมูลธุรกรรมจริง คือ fact_booking (1000 rows) และ fact_marketing_spend (100 rows)
 - ตารางรายละเอียด (Dimension Tables): ให้ข้อมูลขยายความ ได้แก่ dim_channels (ช่องทาง), dim_rate_codes (ประเภทราคา), dim_room_types (ประเภทห้องพัก), และ dim_segments (กลุ่มลูกค้า)
 
-# Data Dictionary: Hotel Booking & Marketing Dataset
+### Data Dictionary: Hotel Booking & Marketing Dataset
 ในการสร้างชุดข้อมูลนี้ ได้มีการใช้ Prompt 
 ```
 สร้างฐานข้อมูลจำลองสำหรับโรงแรม เพื่อวิเคราะห์ Channel Profitability ประกอบด้วยตาราง fact_bookings 1000 แถว ที่มีข้อมูลการเงิน (Gross Revenue, Commission, Net Revenue), ตาราง dim_channels ที่ระบุรูปแบบค่าคอมมิชชั่น (Percentage, Flat Fee, Net Rate), ตาราง dim_rate_codes ที่จำแนกประเภทราคา และตาราง fact_marketing_spend เพื่อคำนวณต้นทุนการตลาดของช่องทาง Direct โดยข้อมูลต้องมีความสัมพันธ์กันอย่างถูกต้องเพื่อใช้วิเคราะห์ ADR, Occupancy และ COA%
 ```
 
 
-## 1. Table: fact_booking
+### 1. Table: fact_booking
 ตารางหลักที่เก็บข้อมูลธุรกรรมการจองห้องพัก (Main Fact Table)
 
 | Column | Data Type | Description | Example |
@@ -124,7 +124,7 @@ Low-Cost Revenue Share (%)  = Direct Revenue Share
 | **adults_count** | Ratio (Numeric) | จำนวนผู้ใหญ่ที่เข้าพัก | 1, 2 |
 | **children_count** | Ratio (Numeric) | จำนวนเด็กที่เข้าพัก | 0, 1, 2 |
 
-## 2. Table: fact_marketing_spend
+### 2. Table: fact_marketing_spend
 ตารางที่เก็บข้อมูลค่าใช้จ่ายและประสิทธิภาพของแคมเปญการตลาด
 
 | Column | Data Type | Description | Example |
@@ -136,7 +136,7 @@ Low-Cost Revenue Share (%)  = Direct Revenue Share
 | **cost_amount** | Ratio (Numeric) | จำนวนเงินงบประมาณที่ใช้ไปจริง | 967, 361, 583 |
 | **clicks** | Ratio (Numeric) | จำนวนคลิกที่ได้รับจากการโฆษณา | 460, 110, 383 |
 
-## 3. Dimension Tables
+### 3. Dimension Tables
 ตารางสนับสนุนที่ใช้สำหรับจำแนกหมวดหมู่ข้อมูล (Contextual Data)
 
 ### dim_channels
