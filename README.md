@@ -161,7 +161,7 @@ Low-Cost Revenue Share (%)  = Direct Revenue Share
 * **Rows (จำนวนแถว):** 1,000
 * **Columns (จำนวนคอลัมน์):** 26
 
-## 2. Data Quality Check & Cleaning Process (Actual Data Stats)
+## 2. Data Quality Check & Cleaning Process
 
 | Step | Description | Column Stats (Mean / Max / Min / Median) |
 | :--- | :--- | :--- |
