@@ -153,6 +153,36 @@ Low-Cost Revenue Share (%)  = Direct Revenue Share
 
 ---
 
+# Hotel Data Analysis - EDA Report
+
+โครงการวิเคราะห์และทำความสะอาดข้อมูลการจองโรงแรม (Hotel Booking Data) เพื่อเตรียมความพร้อมสำหรับการวิเคราะห์ KPI และพฤติกรรมลูกค้า
+
+## 1. Data Overview
+* **Rows (จำนวนแถว):** 1,000
+* **Columns (จำนวนคอลัมน์):** 26
+
+## 2. Data Quality Check & Cleaning Process (Actual Data Stats)
+
+| Step | Description | Column Stats (Mean / Max / Min / Median) |
+| :--- | :--- | :--- |
+| 1 | **Gross Room Revenue** | Mean: 498.00 \| Max: 1,500.00 \| Min: 100.00 \| Median: 400.00 |
+| 2 | **Base Price** | Mean: 167.00 \| Max: 250.00 \| Min: 100.00 \| Median: 150.00 |
+| 3 | **Commission Amount** | Mean: 30.05 \| Max: 300.00 \| Min: 0.00 \| Median: 0.00 |
+| 4 | **Number of Rooms** | Mean: 1.50 \| Max: 2.00 \| Min: 1.00 \| Median: 2.00 |
+| 5 | **Adults Count** | Mean: 1.51 \| Max: 2.00 \| Min: 1.00 \| Median: 2.00 |
+| 6 | **Children Count** | Mean: 1.01 \| Max: 2.00 \| Min: 0.00 \| Median: 1.00 |
+| 7 | **Net Room Revenue** | Mean: 467.95 \| Max: 1,500.00 \| Min: 80.00 \| Median: 400.00 |
+
+## 3. Key Metrics & KPIs Summary
+
+* **Gross Room Revenue:** รายได้ก่อนหักค่าธรรมเนียม มีค่าเฉลี่ยอยู่ที่ 498.00 ต่อรายการ
+* **Net Room Revenue:** รายได้หลังหักคอมมิชชั่น มีค่าเฉลี่ยอยู่ที่ 467.95
+* **Commission Cost:** ค่าคอมมิชชั่นเฉลี่ยอยู่ที่ 30.05 ต่อการจอง (โดยมีค่ามัธยฐานเป็น 0 หมายความว่าการจองจำนวนมากเป็นแบบ Direct หรือไม่มีค่าคอมมิชชั่น)
+* **Occupancy Profile:** โดยเฉลี่ยมีจำนวนห้องพัก 1.5 ห้องต่อการจอง และผู้ใหญ่ 1.5 คนต่อการจอง
+
+---
+*จัดทำโดย: [Your Name/Team Name]*
+
 ### Hypotheses1: จองผ่าน Direct แม้จะมีต้นทุนแต่ให้ค่า Net ADR สูงกว่าการจองผ่าน OTA อย่างมีนัยสำคัญ
 Stacked Bar Chart แสดงความแตกต่างระหว่าง Gross ADR และ Net ADR แยกตามช่องทางการขาย (Channel Name)
 - เปรียบเทียบสัดส่วน: แสดงให้เห็นส่วนต่างระหว่างราคาขายหน้าร้าน (Gross) กับรายได้จริงที่โรงแรมได้รับหลังจากหักค่าคอมมิชชันและค่าใช้จ่ายอื่นๆ (Net)
