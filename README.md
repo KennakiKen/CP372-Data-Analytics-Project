@@ -154,7 +154,14 @@ Low-Cost Revenue Share (%)  = Direct Revenue Share
 ---
 
 ### Hypotheses1: จองผ่าน Direct แม้จะมีต้นทุนแต่ให้ค่า Net ADR สูงกว่าการจองผ่าน OTA อย่างมีนัยสำคัญ
-<img width="946" height="820" alt="Net ADR Comparison" src="https://github.com/user-attachments/assets/79c59a99-64c6-4038-9309-f2e4e3ed0df3" />
+Stacked Bar Chart แสดงความแตกต่างระหว่าง Gross ADR และ Net ADR แยกตามช่องทางการขาย (Channel Name)
+- เปรียบเทียบสัดส่วน: แสดงให้เห็นส่วนต่างระหว่างราคาขายหน้าร้าน (Gross) กับรายได้จริงที่โรงแรมได้รับหลังจากหักค่าคอมมิชชันและค่าใช้จ่ายอื่นๆ (Net)
+
+- จุดสังเกต: แม้ช่องทางอย่าง Expedia หรือ Direct Website จะมี Gross ADR สูงที่สุด แต่เมื่อดูที่ Net ADR (แถบสีส้ม) จะเห็นว่า Direct Website ให้รายได้สุทธิต่อห้องสูงที่สุดอย่างชัดเจน ในขณะที่ช่องทาง OTA อื่นๆ มีส่วนต่าง (Gap) ที่กว้างกว่า ซึ่งหมายถึงต้นทุนการขายที่สูงกว่านั่นเอง
+
+เหตุผลที่เลือก: Stacked Bar เหมาะสำหรับการแสดงค่ารวม (Gross) พร้อมกับสัดส่วนภายใน (Net) ทำให้เห็น ต้นทุนแฝง ของแต่ละช่องทางได้ทันทีในแท่งเดียว ช่วยให้ฝ่ายรายได้ตัดสินใจได้ว่าควรผลักดันการจองผ่านช่องทางไหนเพื่อให้ได้กำไรสูงสุด
+
+[<img width="946" height="820" alt="Net ADR Comparison" src="https://github.com/user-attachments/assets/79c59a99-64c6-4038-9309-f2e4e3ed0df3" />](https://github.com/KennakiKen/CP372-Data-Analytics-Project/blob/main/images/Net%20ADR%20Comparison.png)
 
 
 
