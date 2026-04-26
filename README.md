@@ -181,7 +181,7 @@ Low-Cost Revenue Share (%)  = Direct Revenue Share
 * **Occupancy Profile:** โดยเฉลี่ยมีจำนวนห้องพัก 1.5 ห้องต่อการจอง และผู้ใหญ่ 1.5 คนต่อการจอง
 
 ---
-*จัดทำโดย: [Your Name/Team Name]*
+
 
 ### Hypotheses1: จองผ่าน Direct แม้จะมีต้นทุนแต่ให้ค่า Net ADR สูงกว่าการจองผ่าน OTA อย่างมีนัยสำคัญ
 Stacked Bar Chart แสดงความแตกต่างระหว่าง Gross ADR และ Net ADR แยกตามช่องทางการขาย (Channel Name)
