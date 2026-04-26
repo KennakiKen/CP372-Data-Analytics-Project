@@ -89,7 +89,7 @@ Low-Cost Revenue Share (%)  = Direct Revenue Share
 - คำนวณ Opportunity Gain จาก Suite จาก OTA เป็น Direct
 - ทำ Platform Efficiency Matrix เพื่อจัดเกรด Platform ที่ควร เพิ่มหรือลดงบ
 
-# Section 3: Data Execution & EDA
+# Section 3: Data Execution & EDA 
 ## Data Schema & Relationships
 ข้อมูลถูกจัดลำดับโดยมีตาราง fact_booking เป็นศูนย์กลางเชื่อมโยงกับตารางอื่นๆ ด้วยรหัส ID
 - ตารางหลัก (Fact Tables): เก็บข้อมูลธุรกรรมจริง คือ fact_booking (1000 rows) และ fact_marketing_spend (100 rows)
@@ -153,7 +153,7 @@ Low-Cost Revenue Share (%)  = Direct Revenue Share
 
 ---
 
-# Hotel Data Analysis - EDA Report
+# Hotel Data Analysis - EDA Report (Actual Data Stats)
 
 โครงการวิเคราะห์และทำความสะอาดข้อมูลการจองโรงแรม (Hotel Booking Data) เพื่อเตรียมความพร้อมสำหรับการวิเคราะห์ KPI และพฤติกรรมลูกค้า
 
