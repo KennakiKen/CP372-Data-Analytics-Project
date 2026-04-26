@@ -153,7 +153,8 @@ Low-Cost Revenue Share (%)  = Direct Revenue Share
 
 ---
 
-## Hypotheses1: จองผ่าน Direct แม้จะมีต้นทุนแต่ให้ค่า Net ADR สูงกว่าการจองผ่าน OTA อย่างมีนัยสำคัญ
+### Hypotheses1: จองผ่าน Direct แม้จะมีต้นทุนแต่ให้ค่า Net ADR สูงกว่าการจองผ่าน OTA อย่างมีนัยสำคัญ
+<img width="946" height="820" alt="Net ADR Comparison" src="https://github.com/user-attachments/assets/79c59a99-64c6-4038-9309-f2e4e3ed0df3" />
 
 
 
