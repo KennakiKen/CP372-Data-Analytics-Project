@@ -163,15 +163,19 @@ Low-Cost Revenue Share (%)  = Direct Revenue Share
 
 ## 2. Data Quality Check & Cleaning Process
 
-| Step | Description | Column Stats (Mean / Max / Min / Median) |
-| :--- | :--- | :--- |
-| 1 | **Gross Room Revenue** | Mean: 498.00 \| Max: 1,500.00 \| Min: 100.00 \| Median: 400.00 |
-| 2 | **Base Price** | Mean: 167.00 \| Max: 250.00 \| Min: 100.00 \| Median: 150.00 |
-| 3 | **Commission Amount** | Mean: 30.05 \| Max: 300.00 \| Min: 0.00 \| Median: 0.00 |
-| 4 | **Number of Rooms** | Mean: 1.50 \| Max: 2.00 \| Min: 1.00 \| Median: 2.00 |
-| 5 | **Adults Count** | Mean: 1.51 \| Max: 2.00 \| Min: 1.00 \| Median: 2.00 |
-| 6 | **Children Count** | Mean: 1.01 \| Max: 2.00 \| Min: 0.00 \| Median: 1.00 |
-| 7 | **Net Room Revenue** | Mean: 467.95 \| Max: 1,500.00 \| Min: 80.00 \| Median: 400.00 |
+| #  | Step                        | Description                                                                                                                                                         | Column Stats                                                                          |
+| -- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| 1  | Changed Data Types          | ปรับชนิดข้อมูลของแต่ละคอลัมน์ให้เหมาะสม เช่น วันที่เป็น Date format, รายได้/ต้นทุนเป็น Number และ Channel / Status เป็น Text เพื่อให้คำนวณต้นทุนและรายงานได้ถูกต้อง | **gross_room_revenue** Mean = 498.00 | Max = 1500.00 | Min = 100.00 | Median = 400.00 |
+| 2  | Removed guest_id            | ลบคอลัมน์ `guest_id` ออกจากชุดข้อมูล เนื่องจากไม่เกี่ยวข้องกับการวิเคราะห์กำไรของช่องทางการขาย และช่วยลดข้อมูลส่วนเกิน                                              | **base_price** Mean = 167.00 | Max = 250.00 | Min = 100.00 | Median = 150.00          |
+| 3  | Validated Commission Values | ตรวจสอบค่าคอมมิชชั่นให้ไม่มีค่าติดลบ และตรงตามรูปแบบของแต่ละ Channel เช่น OTA มีค่า %, Direct อาจไม่มีค่าคอม                                                        | **commission_amount** Mean = 30.05 | Max = 300.00 | Min = 0.00 | Median = 0.00        |
+| 4  | Checked Net Revenue Logic   | ตรวจสอบสูตร `net_room_revenue = gross_room_revenue - commission_amount` เพื่อให้มั่นใจว่ารายได้สุทธิถูกต้อง                                                         | **net_room_revenue** Mean = 467.95 | Max = 1500.00 | Min = 80.00 | Median = 400.00    |
+| 5  | Standardized Channel Names  | จัดรูปแบบชื่อช่องทางการขายให้เป็นมาตรฐาน เช่น Booking.com / Expedia / Direct Website เพื่อใช้ทำ Dashboard และ Group ได้ง่าย                                         | **default_commission_rate** Mean = 0.11 | Max = 0.20 | Min = 0.00 | Median = 0.17     |
+| 6  | Created LOS Metric          | สร้างคอลัมน์ `LOS_nights` จาก Check-out Date - Check-in Date เพื่อดูพฤติกรรมการเข้าพักและกำไรต่อ Booking                                                            | **LOS_nights** Mean = 2.01 | Max = 3.00 | Min = 1.00 | Median = 2.00                  |
+| 7  | Created Lead Time           | สร้างคอลัมน์ `BLT_days` จาก Check-in Date - Booking Date เพื่อวิเคราะห์ว่าช่องทางไหนจองล่วงหน้านานหรือใกล้วันเข้าพัก                                                | **BLT_days** Mean = 15.92 | Max = 30.00 | Min = 1.00 | Median = 16.00                 |
+| 8  | Cleaned Text Columns        | ลบช่องว่างเกิน / ตัวอักษรพิเศษ / ค่าไม่สม่ำเสมอใน Channel Name, Rate Name, Segment Name เพื่อป้องกันการรวมกลุ่มผิดพลาด                                              | **number_of_rooms** Mean = 1.50 | Max = 2.00 | Min = 1.00 | Median = 2.00             |
+| 9  | Feature Engineering         | เพิ่มตัวแปรช่วยวิเคราะห์ เช่น `is_ota`, `is_direct`, `is_commissionable`, `high_cost_channel` เพื่อใช้เปรียบเทียบกำไรแต่ละ Channel                                  | **adults_count** Mean = 1.51 | Max = 2.00 | Min = 1.00 | Median = 2.00                |
+| 10 | KPI Calculation             | สร้าง KPI สำคัญ เช่น `ADR`, `Net ADR`, `COA %`, `Commission %`, `Net Revenue per Booking` เพื่อวัดประสิทธิภาพช่องทางขาย                                             | **children_count** Mean = 1.01 | Max = 2.00 | Min = 0.00 | Median = 1.00              |
+| 11 | Channel Profitability Prep  | เตรียมข้อมูลเพื่อวิเคราะห์ว่า Channel ไหนสร้างยอดขายสูงแต่กำไรต่ำ และ Channel ไหนยอดขายน้อยแต่กำไรดี                                                                | **channel_type** = OTA / Direct / Offline                                             |
 
 ## 3. Key Metrics & KPIs Summary
 
