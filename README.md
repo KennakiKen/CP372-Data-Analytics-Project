@@ -98,7 +98,7 @@ Low-Cost Revenue Share (%)  = Direct Revenue Share
 ### Data Dictionary: Hotel Booking & Marketing Dataset
 ในการสร้างชุดข้อมูลนี้ ได้มีการใช้ Prompt 
 ```
-สร้างฐานข้อมูลจำลองสำหรับโรงแรม เพื่อวิเคราะห์ Channel Profitability ประกอบด้วยตาราง fact_bookings 1000 แถว ที่มีข้อมูลการเงิน (Gross Revenue, Commission, Net Revenue), ตาราง dim_channels ที่ระบุรูปแบบค่าคอมมิชชั่น (Percentage, Flat Fee, Net Rate), ตาราง dim_rate_codes ที่จำแนกประเภทราคา และตาราง fact_marketing_spend เพื่อคำนวณต้นทุนการตลาดของช่องทาง Direct โดยข้อมูลต้องมีความสัมพันธ์กันอย่างถูกต้องเพื่อใช้วิเคราะห์ ADR, Occupancy และ COA%
+Generate a synthetic dataset of 1,000 rows in CSV format for a retail business. The columns should include: Transaction_ID (unique), Date (spanning 2023-2024), Product_Category (Electronics, Apparel, Home), Price, Quantity, and Customer_Rating (1-5). Ensure there are some missing values in Customer_Rating and a few outliers in Price to simulate real-world messy data.
 ```
 
 
