@@ -142,14 +142,33 @@ Generate a synthetic dataset of 1,000 rows in CSV format for a retail business. 
 ### dim_channels
 | Column | Data Type | Description | Example |
 | :--- | :--- | :--- | :--- |
+| **channel_id** | Nominal (String) | รหัสอ้างอิงช่องทาง | CH01, CH02, CH03 |
 | **channel_name** | Nominal (String) | ชื่อช่องทางการจอง | Booking.com, Expedia, Agoda, Direct Website |
 | **channel_type** | Nominal (String) | หมวดหมู่ช่องทาง | OTA, Direct, Offline |
+| **commission_model** | Nominal (String) | ประเภทค่าคอมมิชชัน | Percentage, Flat Fee, Net Rate |
+| **default_commission_rate** | Ratio (Numeric) | อัตราค่าคอมมิชชันมาตรฐาน | 0.18, 0.2, 0.17 | 
+| **contract_owner** | Nominal (String) | ผู้ถือครองสัญญา | Alice, Bob, Charlie |
 
 ### dim_room_types
 | Column | Data Type | Description | Example |
 | :--- | :--- | :--- | :--- |
+| **room_type_id** | Nominal (String) | รหัสอ้างอิงห้องพัก | RM01, RM02, RM03 |
 | **room_type_name** | Nominal (String) | ชื่อเรียกประเภทห้องพัก | Standard, Deluxe, Suite |
 | **base_price** | Ratio (Numeric) | ราคาตั้งต้นของห้องพัก | 100, 150, 250 |
+
+### dim_rate_codes
+| Column | Data Type | Description | Example |
+| :--- | :--- | :--- | :--- |
+| **rate_code_id** | Nominal (String) | รหัสอ้างอิงประเภทอัตราราคา | RT01, RT02 |
+| **rate_name** | Nominal (String) | ชื่อเรียกประเภทอัตราราคา | Standard Rate, Non-Refundable |
+| **is_commissionable** | Boolean / Logical | สถานะการคิดค่าคอมมิชชัน | TRUE, FALSE |
+
+### dim_segments
+| Column | Data Type | Description | Example |
+| :--- | :--- | :--- | :--- |
+| **segment_id** | Nominal (String) | รหัสอ้างอิงกลุ่มลูกค้า | SG01, SG02 |
+| **segment_name** | Nominal (String) | ชื่อเรียกกลุ่มลูกค้า | Leisure, Business |
+
 
 ---
 
