@@ -1,0 +1,3139 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20253.26.0206.0336                               -->
+<workbook original-version='18.1' source-build='2025.3.3 (20253.26.0206.0336)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
+    <AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <ISO8601WeekNumbering_SP1 />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='fact_booking+ (data)' inline='true' name='federated.0iio7wz0azduz60ziqu6h08nmyu7' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='data' name='excel-direct.1gvrcj10aj19yp1af4cqw1nzofog'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/Tinna/Desktop/cp372/data.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation type='collection'>
+          <relation connection='excel-direct.1gvrcj10aj19yp1af4cqw1nzofog' name='fact_booking' table='[fact_booking$]' type='table'>
+            <columns gridOrigin='A1:P1001:no:A1:P1001:0' header='yes' outcome='6'>
+              <column datatype='string' name='booking_id' ordinal='0' />
+              <column datatype='string' name='guest_id' ordinal='1' />
+              <column datatype='date' name='booking_date' ordinal='2' />
+              <column datatype='date' name='check_in_date' ordinal='3' />
+              <column datatype='date' name='check_out_date' ordinal='4' />
+              <column datatype='string' name='room_type_id' ordinal='5' />
+              <column datatype='string' name='rate_code_id' ordinal='6' />
+              <column datatype='string' name='channel_id' ordinal='7' />
+              <column datatype='string' name='segment_id' ordinal='8' />
+              <column datatype='string' name='status' ordinal='9' />
+              <column datatype='integer' name='gross_room_revenue' ordinal='10' />
+              <column datatype='real' name='commission_amount' ordinal='11' />
+              <column datatype='real' name='net_room_revenue' ordinal='12' />
+              <column datatype='integer' name='number_of_rooms' ordinal='13' />
+              <column datatype='integer' name='adults_count' ordinal='14' />
+              <column datatype='integer' name='children_count' ordinal='15' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.1gvrcj10aj19yp1af4cqw1nzofog' name='dim_channels' table='[dim_channels$]' type='table'>
+            <columns gridOrigin='A1:F6:no:A1:F6:0' header='yes' outcome='6'>
+              <column datatype='string' name='channel_id' ordinal='0' />
+              <column datatype='string' name='channel_name' ordinal='1' />
+              <column datatype='string' name='channel_type' ordinal='2' />
+              <column datatype='string' name='commission_model' ordinal='3' />
+              <column datatype='real' name='default_commission_rate' ordinal='4' />
+              <column datatype='string' name='contract_owner' ordinal='5' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.1gvrcj10aj19yp1af4cqw1nzofog' name='dim_rate_codes' table='[dim_rate_codes$]' type='table'>
+            <columns gridOrigin='A1:C6:no:A1:C6:0' header='yes' outcome='6'>
+              <column datatype='string' name='rate_code_id' ordinal='0' />
+              <column datatype='string' name='rate_name' ordinal='1' />
+              <column datatype='boolean' name='is_commissionable' ordinal='2' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.1gvrcj10aj19yp1af4cqw1nzofog' name='dim_room_types' table='[dim_room_types$]' type='table'>
+            <columns gridOrigin='A1:C4:no:A1:C4:0' header='yes' outcome='6'>
+              <column datatype='string' name='room_type_id' ordinal='0' />
+              <column datatype='string' name='room_type_name' ordinal='1' />
+              <column datatype='integer' name='base_price' ordinal='2' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.1gvrcj10aj19yp1af4cqw1nzofog' name='dim_segments' table='[dim_segments$]' type='table'>
+            <columns gridOrigin='A1:B4:no:A1:B4:0' header='yes' outcome='6'>
+              <column datatype='string' name='segment_id' ordinal='0' />
+              <column datatype='string' name='segment_name' ordinal='1' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.1gvrcj10aj19yp1af4cqw1nzofog' name='fact_marketing_spend' table='[fact_marketing_spend$]' type='table'>
+            <columns gridOrigin='A1:F101:no:A1:F101:0' header='yes' outcome='6'>
+              <column datatype='string' name='spend_id' ordinal='0' />
+              <column datatype='date' name='spend_date' ordinal='1' />
+              <column datatype='string' name='channel_id' ordinal='2' />
+              <column datatype='string' name='platform' ordinal='3' />
+              <column datatype='integer' name='cost_amount' ordinal='4' />
+              <column datatype='integer' name='clicks' ordinal='5' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[adults_count]' value='[fact_booking].[adults_count]' />
+          <map key='[base_price]' value='[dim_room_types].[base_price]' />
+          <map key='[booking_date]' value='[fact_booking].[booking_date]' />
+          <map key='[booking_id]' value='[fact_booking].[booking_id]' />
+          <map key='[channel_id (dim!channels)]' value='[dim_channels].[channel_id]' />
+          <map key='[channel_id (fact!marketing!spend)]' value='[fact_marketing_spend].[channel_id]' />
+          <map key='[channel_id]' value='[fact_booking].[channel_id]' />
+          <map key='[channel_name]' value='[dim_channels].[channel_name]' />
+          <map key='[channel_type]' value='[dim_channels].[channel_type]' />
+          <map key='[check_in_date]' value='[fact_booking].[check_in_date]' />
+          <map key='[check_out_date]' value='[fact_booking].[check_out_date]' />
+          <map key='[children_count]' value='[fact_booking].[children_count]' />
+          <map key='[clicks]' value='[fact_marketing_spend].[clicks]' />
+          <map key='[commission_amount]' value='[fact_booking].[commission_amount]' />
+          <map key='[commission_model]' value='[dim_channels].[commission_model]' />
+          <map key='[contract_owner]' value='[dim_channels].[contract_owner]' />
+          <map key='[cost_amount]' value='[fact_marketing_spend].[cost_amount]' />
+          <map key='[default_commission_rate]' value='[dim_channels].[default_commission_rate]' />
+          <map key='[gross_room_revenue]' value='[fact_booking].[gross_room_revenue]' />
+          <map key='[guest_id]' value='[fact_booking].[guest_id]' />
+          <map key='[is_commissionable]' value='[dim_rate_codes].[is_commissionable]' />
+          <map key='[net_room_revenue]' value='[fact_booking].[net_room_revenue]' />
+          <map key='[number_of_rooms]' value='[fact_booking].[number_of_rooms]' />
+          <map key='[platform]' value='[fact_marketing_spend].[platform]' />
+          <map key='[rate_code_id (dim!rate!codes)]' value='[dim_rate_codes].[rate_code_id]' />
+          <map key='[rate_code_id]' value='[fact_booking].[rate_code_id]' />
+          <map key='[rate_name]' value='[dim_rate_codes].[rate_name]' />
+          <map key='[room_type_id (dim!room!types)]' value='[dim_room_types].[room_type_id]' />
+          <map key='[room_type_id]' value='[fact_booking].[room_type_id]' />
+          <map key='[room_type_name]' value='[dim_room_types].[room_type_name]' />
+          <map key='[segment_id (dim!segments)]' value='[dim_segments].[segment_id]' />
+          <map key='[segment_id]' value='[fact_booking].[segment_id]' />
+          <map key='[segment_name]' value='[dim_segments].[segment_name]' />
+          <map key='[spend_date]' value='[fact_marketing_spend].[spend_date]' />
+          <map key='[spend_id]' value='[fact_marketing_spend].[spend_id]' />
+          <map key='[status]' value='[fact_booking].[status]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[fact_booking]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:P1001:no:A1:P1001:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[dim_channels]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:F6:no:A1:F6:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[dim_rate_codes]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:C6:no:A1:C6:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[dim_room_types]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:C4:no:A1:C4:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[dim_segments]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:B4:no:A1:B4:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[fact_marketing_spend]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:F101:no:A1:F101:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>booking_id</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[booking_id]</local-name>
+            <parent-name>[fact_booking]</parent-name>
+            <remote-alias>booking_id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTH_RTH_S4' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>guest_id</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[guest_id]</local-name>
+            <parent-name>[fact_booking]</parent-name>
+            <remote-alias>guest_id</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTH_RTH_S4' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>booking_date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[booking_date]</local-name>
+            <parent-name>[fact_booking]</parent-name>
+            <remote-alias>booking_date</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+            <object-id>[fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>check_in_date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[check_in_date]</local-name>
+            <parent-name>[fact_booking]</parent-name>
+            <remote-alias>check_in_date</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+            <object-id>[fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>check_out_date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[check_out_date]</local-name>
+            <parent-name>[fact_booking]</parent-name>
+            <remote-alias>check_out_date</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+            <object-id>[fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>room_type_id</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[room_type_id]</local-name>
+            <parent-name>[fact_booking]</parent-name>
+            <remote-alias>room_type_id</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTH_RTH_S4' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rate_code_id</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[rate_code_id]</local-name>
+            <parent-name>[fact_booking]</parent-name>
+            <remote-alias>rate_code_id</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTH_RTH_S4' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>channel_id</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[channel_id]</local-name>
+            <parent-name>[fact_booking]</parent-name>
+            <remote-alias>channel_id</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTH_RTH_S4' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>segment_id</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[segment_id]</local-name>
+            <parent-name>[fact_booking]</parent-name>
+            <remote-alias>segment_id</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTH_RTH_S4' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>status</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[status]</local-name>
+            <parent-name>[fact_booking]</parent-name>
+            <remote-alias>status</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTH_RTH_S4' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>gross_room_revenue</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[gross_room_revenue]</local-name>
+            <parent-name>[fact_booking]</parent-name>
+            <remote-alias>gross_room_revenue</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>commission_amount</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[commission_amount]</local-name>
+            <parent-name>[fact_booking]</parent-name>
+            <remote-alias>commission_amount</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <object-id>[fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>net_room_revenue</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[net_room_revenue]</local-name>
+            <parent-name>[fact_booking]</parent-name>
+            <remote-alias>net_room_revenue</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <object-id>[fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>number_of_rooms</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[number_of_rooms]</local-name>
+            <parent-name>[fact_booking]</parent-name>
+            <remote-alias>number_of_rooms</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>adults_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[adults_count]</local-name>
+            <parent-name>[fact_booking]</parent-name>
+            <remote-alias>adults_count</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>children_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[children_count]</local-name>
+            <parent-name>[fact_booking]</parent-name>
+            <remote-alias>children_count</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>channel_id</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[channel_id (dim!channels)]</local-name>
+            <parent-name>[dim_channels]</parent-name>
+            <remote-alias>channel_id</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTH_RTH_S4' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[dim!channels_C3FB11FBFCA04D25B9C97E008F717F45]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>channel_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[channel_name]</local-name>
+            <parent-name>[dim_channels]</parent-name>
+            <remote-alias>channel_name</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTH_RTH_S4' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[dim!channels_C3FB11FBFCA04D25B9C97E008F717F45]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>channel_type</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[channel_type]</local-name>
+            <parent-name>[dim_channels]</parent-name>
+            <remote-alias>channel_type</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTH_RTH_S4' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[dim!channels_C3FB11FBFCA04D25B9C97E008F717F45]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>commission_model</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[commission_model]</local-name>
+            <parent-name>[dim_channels]</parent-name>
+            <remote-alias>commission_model</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTH_RTH_S4' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[dim!channels_C3FB11FBFCA04D25B9C97E008F717F45]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>default_commission_rate</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[default_commission_rate]</local-name>
+            <parent-name>[dim_channels]</parent-name>
+            <remote-alias>default_commission_rate</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <object-id>[dim!channels_C3FB11FBFCA04D25B9C97E008F717F45]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>contract_owner</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[contract_owner]</local-name>
+            <parent-name>[dim_channels]</parent-name>
+            <remote-alias>contract_owner</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTH_RTH_S4' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[dim!channels_C3FB11FBFCA04D25B9C97E008F717F45]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rate_code_id</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[rate_code_id (dim!rate!codes)]</local-name>
+            <parent-name>[dim_rate_codes]</parent-name>
+            <remote-alias>rate_code_id</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTH_RTH_S4' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[dim!rate!codes_C97543094E654677B5BBD108C51C21A5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rate_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[rate_name]</local-name>
+            <parent-name>[dim_rate_codes]</parent-name>
+            <remote-alias>rate_name</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTH_RTH_S4' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[dim!rate!codes_C97543094E654677B5BBD108C51C21A5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>is_commissionable</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[is_commissionable]</local-name>
+            <parent-name>[dim_rate_codes]</parent-name>
+            <remote-alias>is_commissionable</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WINBOOL&quot;</attribute>
+            </attributes>
+            <object-id>[dim!rate!codes_C97543094E654677B5BBD108C51C21A5]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>room_type_id</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[room_type_id (dim!room!types)]</local-name>
+            <parent-name>[dim_room_types]</parent-name>
+            <remote-alias>room_type_id</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTH_RTH_S4' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[dim!room!types_78108E0DEBAA4E188BD3C010229D8E10]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>room_type_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[room_type_name]</local-name>
+            <parent-name>[dim_room_types]</parent-name>
+            <remote-alias>room_type_name</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTH_RTH_S4' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[dim!room!types_78108E0DEBAA4E188BD3C010229D8E10]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>base_price</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[base_price]</local-name>
+            <parent-name>[dim_room_types]</parent-name>
+            <remote-alias>base_price</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[dim!room!types_78108E0DEBAA4E188BD3C010229D8E10]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>segment_id</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[segment_id (dim!segments)]</local-name>
+            <parent-name>[dim_segments]</parent-name>
+            <remote-alias>segment_id</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTH_RTH_S4' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[dim!segments_F6676F78A79A4DC99FFE0798B8515310]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>segment_name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[segment_name]</local-name>
+            <parent-name>[dim_segments]</parent-name>
+            <remote-alias>segment_name</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTH_RTH_S4' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[dim!segments_F6676F78A79A4DC99FFE0798B8515310]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>spend_id</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[spend_id]</local-name>
+            <parent-name>[fact_marketing_spend]</parent-name>
+            <remote-alias>spend_id</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTH_RTH_S4' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[fact!marketing!spend_EA717D15944149E694C40D0F1CAA7F4F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>spend_date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[spend_date]</local-name>
+            <parent-name>[fact_marketing_spend]</parent-name>
+            <remote-alias>spend_date</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+            <object-id>[fact!marketing!spend_EA717D15944149E694C40D0F1CAA7F4F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>channel_id</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[channel_id (fact!marketing!spend)]</local-name>
+            <parent-name>[fact_marketing_spend]</parent-name>
+            <remote-alias>channel_id</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTH_RTH_S4' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[fact!marketing!spend_EA717D15944149E694C40D0F1CAA7F4F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>platform</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[platform]</local-name>
+            <parent-name>[fact_marketing_spend]</parent-name>
+            <remote-alias>platform</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LTH_RTH_S4' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[fact!marketing!spend_EA717D15944149E694C40D0F1CAA7F4F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>cost_amount</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[cost_amount]</local-name>
+            <parent-name>[fact_marketing_spend]</parent-name>
+            <remote-alias>cost_amount</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[fact!marketing!spend_EA717D15944149E694C40D0F1CAA7F4F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>clicks</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[clicks]</local-name>
+            <parent-name>[fact_marketing_spend]</parent-name>
+            <remote-alias>clicks</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[fact!marketing!spend_EA717D15944149E694C40D0F1CAA7F4F]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Gross ADR' datatype='real' name='[Calculation_0759001505918976]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([gross_room_revenue]) / SUM([number_of_rooms])' />
+      </column>
+      <column caption='Net ADR' datatype='real' name='[Calculation_0759001506070529]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([net_room_revenue]) / SUM([number_of_rooms])' />
+      </column>
+      <column caption='Marketing Cost %' datatype='real' name='[Calculation_0759001529556994]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([cost_amount]) / SUM([Calculation_0759001529856003])' />
+      </column>
+      <column caption='Total Direct Revenue' datatype='integer' name='[Calculation_0759001529856003]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF [channel_name] = &quot;Direct Website&quot; THEN [gross_room_revenue] ELSE 0 END' />
+      </column>
+      <column caption='dim_channels' datatype='table' name='[__tableau_internal_object_id__].[dim!channels_C3FB11FBFCA04D25B9C97E008F717F45]' role='measure' type='quantitative' />
+      <column caption='dim_rate_codes' datatype='table' name='[__tableau_internal_object_id__].[dim!rate!codes_C97543094E654677B5BBD108C51C21A5]' role='measure' type='quantitative' />
+      <column caption='dim_room_types' datatype='table' name='[__tableau_internal_object_id__].[dim!room!types_78108E0DEBAA4E188BD3C010229D8E10]' role='measure' type='quantitative' />
+      <column caption='dim_segments' datatype='table' name='[__tableau_internal_object_id__].[dim!segments_F6676F78A79A4DC99FFE0798B8515310]' role='measure' type='quantitative' />
+      <column caption='fact_booking' datatype='table' name='[__tableau_internal_object_id__].[fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A]' role='measure' type='quantitative' />
+      <column caption='fact_marketing_spend' datatype='table' name='[__tableau_internal_object_id__].[fact!marketing!spend_EA717D15944149E694C40D0F1CAA7F4F]' role='measure' type='quantitative' />
+      <column caption='Adults Count' datatype='integer' name='[adults_count]' role='measure' type='quantitative' />
+      <column caption='Base Price' datatype='integer' name='[base_price]' role='measure' type='quantitative' />
+      <column caption='Booking Date' datatype='date' name='[booking_date]' role='dimension' type='ordinal' />
+      <column caption='Booking Id' datatype='string' name='[booking_id]' role='dimension' type='nominal' />
+      <column caption='Channel Id (Dim!Channels)' datatype='string' name='[channel_id (dim!channels)]' role='dimension' type='nominal' />
+      <column caption='Channel Id (Fact!Marketing!Spend)' datatype='string' name='[channel_id (fact!marketing!spend)]' role='dimension' type='nominal' />
+      <column caption='Channel Id' datatype='string' name='[channel_id]' role='dimension' type='nominal' />
+      <column caption='Channel Name' datatype='string' name='[channel_name]' role='dimension' type='nominal' />
+      <column caption='Channel Type' datatype='string' name='[channel_type]' role='dimension' type='nominal' />
+      <column caption='Check In Date' datatype='date' name='[check_in_date]' role='dimension' type='ordinal' />
+      <column caption='Check Out Date' datatype='date' name='[check_out_date]' role='dimension' type='ordinal' />
+      <column caption='Children Count' datatype='integer' name='[children_count]' role='measure' type='quantitative' />
+      <column caption='Clicks' datatype='integer' name='[clicks]' role='measure' type='quantitative' />
+      <column caption='Commission Amount' datatype='real' name='[commission_amount]' role='measure' type='quantitative' />
+      <column caption='Commission Model' datatype='string' name='[commission_model]' role='dimension' type='nominal' />
+      <column caption='Contract Owner' datatype='string' name='[contract_owner]' role='dimension' type='nominal' />
+      <column caption='Cost Amount' datatype='integer' name='[cost_amount]' role='measure' type='quantitative' />
+      <column caption='Default Commission Rate' datatype='real' name='[default_commission_rate]' role='measure' type='quantitative' />
+      <column caption='Gross Room Revenue' datatype='integer' name='[gross_room_revenue]' role='measure' type='quantitative' />
+      <column caption='Guest Id' datatype='string' name='[guest_id]' role='dimension' type='nominal' />
+      <column caption='Is Commissionable' datatype='boolean' name='[is_commissionable]' role='dimension' type='nominal' />
+      <column caption='Net Room Revenue' datatype='real' name='[net_room_revenue]' role='measure' type='quantitative' />
+      <column caption='Number Of Rooms' datatype='integer' name='[number_of_rooms]' role='measure' type='quantitative' />
+      <column caption='Platform' datatype='string' name='[platform]' role='dimension' type='nominal' />
+      <column caption='Rate Code Id (Dim!Rate!Codes)' datatype='string' name='[rate_code_id (dim!rate!codes)]' role='dimension' type='nominal' />
+      <column caption='Rate Code Id' datatype='string' name='[rate_code_id]' role='dimension' type='nominal' />
+      <column caption='Rate Name' datatype='string' name='[rate_name]' role='dimension' type='nominal' />
+      <column caption='Room Type Id (Dim!Room!Types)' datatype='string' name='[room_type_id (dim!room!types)]' role='dimension' type='nominal' />
+      <column caption='Room Type Id' datatype='string' name='[room_type_id]' role='dimension' type='nominal' />
+      <column caption='Room Type Name' datatype='string' name='[room_type_name]' role='dimension' type='nominal' />
+      <column caption='Segment Id (Dim!Segments)' datatype='string' name='[segment_id (dim!segments)]' role='dimension' type='nominal' />
+      <column caption='Segment Id' datatype='string' name='[segment_id]' role='dimension' type='nominal' />
+      <column caption='Segment Name' datatype='string' name='[segment_name]' role='dimension' type='nominal' />
+      <column caption='Spend Date' datatype='date' name='[spend_date]' role='dimension' type='ordinal' />
+      <column caption='Spend Id' datatype='string' name='[spend_id]' role='dimension' type='nominal' />
+      <column caption='Status' datatype='string' name='[status]' role='dimension' type='nominal' />
+      <column-instance column='[__tableau_internal_object_id__].[dim!rate!codes_C97543094E654677B5BBD108C51C21A5]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:dim!rate!codes_C97543094E654677B5BBD108C51C21A5:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[__tableau_internal_object_id__].[dim!segments_F6676F78A79A4DC99FFE0798B8515310]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:dim!segments_F6676F78A79A4DC99FFE0798B8515310:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[__tableau_internal_object_id__].[fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[__tableau_internal_object_id__].[fact!marketing!spend_EA717D15944149E694C40D0F1CAA7F4F]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:fact!marketing!spend_EA717D15944149E694C40D0F1CAA7F4F:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[booking_date]' derivation='Day' name='[dy:booking_date:ok]' pivot='key' type='ordinal' />
+      <column-instance column='[booking_date]' derivation='ISO-Weekday' name='[iwd:booking_date:ok]' pivot='key' type='ordinal' />
+      <column-instance column='[channel_name]' derivation='None' name='[none:channel_name:nk]' pivot='key' type='nominal' />
+      <column-instance column='[platform]' derivation='None' name='[none:platform:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Calculation_0759001529856003]' derivation='Sum' name='[sum:Calculation_0759001529856003:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[clicks]' derivation='Sum' name='[sum:clicks:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[commission_amount]' derivation='Sum' name='[sum:commission_amount:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[cost_amount]' derivation='Sum' name='[sum:cost_amount:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[gross_room_revenue]' derivation='Sum' name='[sum:gross_room_revenue:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[net_room_revenue]' derivation='Sum' name='[sum:net_room_revenue:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[number_of_rooms]' derivation='Sum' name='[sum:number_of_rooms:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[booking_date]' derivation='Day-Trunc' name='[tdy:booking_date:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[booking_date]' derivation='Month-Trunc' name='[tmn:booking_date:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[booking_date]' derivation='Quarter-Trunc' name='[tqr:booking_date:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[booking_date]' derivation='Week-Trunc' name='[twk:booking_date:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[booking_date]' derivation='Year-Trunc' name='[tyr:booking_date:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_0759001505918976]' derivation='User' name='[usr:Calculation_0759001505918976:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_0759001506070529]' derivation='User' name='[usr:Calculation_0759001506070529:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_0759001529556994]' derivation='User' name='[usr:Calculation_0759001529556994:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[booking_date]' derivation='Weekday' name='[wd:booking_date:ok]' pivot='key' type='ordinal' />
+      <column-instance column='[booking_date]' derivation='Week' name='[wk:booking_date:ok]' pivot='key' type='ordinal' />
+      <column-instance column='[booking_date]' derivation='Year' name='[yr:booking_date:ok]' pivot='key' type='ordinal' />
+      <group caption='Action (Channel Name)' hidden='true' name='[Action (Channel Name)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[channel_name]' />
+        </groupfilter>
+      </group>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001505918976:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:commission_amount:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:clicks:qk]&quot;</bucket>
+            </map>
+            <map to='#9c755f'>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[__tableau_internal_object_id__].[cnt:fact!marketing!spend_EA717D15944149E694C40D0F1CAA7F4F:qk]&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[__tableau_internal_object_id__].[cnt:dim!rate!codes_C97543094E654677B5BBD108C51C21A5:qk]&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[__tableau_internal_object_id__].[cnt:fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A:qk]&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[dy:booking_date:ok]&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[iwd:booking_date:ok]&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[tdy:booking_date:qk]&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[tmn:booking_date:qk]&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[tqr:booking_date:qk]&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[twk:booking_date:qk]&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[tyr:booking_date:qk]&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[wd:booking_date:ok]&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[wk:booking_date:ok]&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[yr:booking_date:ok]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:Calculation_0759001529856003:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:gross_room_revenue:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:net_room_revenue:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:number_of_rooms:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001529556994:qk]&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:cost_amount:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001506070529:qk]&quot;</bucket>
+            </map>
+            <map to='#ff9da7'>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[__tableau_internal_object_id__].[cnt:dim!segments_F6676F78A79A4DC99FFE0798B8515310:qk]&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:channel_name:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Agoda&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Expedia&quot;</bucket>
+            </map>
+            <map to='#9c755f'>
+              <bucket>&quot;Direct Website&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Corporate&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Booking.com&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:platform:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Facebook&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;Google Ads&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>%null%</bucket>
+            </map>
+            <map to='#ff9da7'>
+              <bucket>&quot;Instagram&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[wd:booking_date:ok]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>6</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>4</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>7</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>1</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>2</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>5</bucket>
+            </map>
+            <map to='#ff9da7'>
+              <bucket>3</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[dy:booking_date:ok]' type='palette'>
+            <map to='#499894'>
+              <bucket>9</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>29</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>1</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>21</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>5</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>25</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>4</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>12</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>10</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>30</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>26</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>17</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>19</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>22</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>7</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>27</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>13</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>14</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>16</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>18</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>3</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>31</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>6</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>8</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>28</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>2</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>23</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>15</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>11</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>20</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>24</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[iwd:booking_date:ok]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>6</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>4</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>7</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>1</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>2</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>5</bucket>
+            </map>
+            <map to='#ff9da7'>
+              <bucket>3</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Thailand&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='dim_channels' id='dim!channels_C3FB11FBFCA04D25B9C97E008F717F45'>
+            <properties context=''>
+              <relation connection='excel-direct.1gvrcj10aj19yp1af4cqw1nzofog' name='dim_channels' table='[dim_channels$]' type='table'>
+                <columns gridOrigin='A1:F6:no:A1:F6:0' header='yes' outcome='6'>
+                  <column datatype='string' name='channel_id' ordinal='0' />
+                  <column datatype='string' name='channel_name' ordinal='1' />
+                  <column datatype='string' name='channel_type' ordinal='2' />
+                  <column datatype='string' name='commission_model' ordinal='3' />
+                  <column datatype='real' name='default_commission_rate' ordinal='4' />
+                  <column datatype='string' name='contract_owner' ordinal='5' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+          <object caption='dim_rate_codes' id='dim!rate!codes_C97543094E654677B5BBD108C51C21A5'>
+            <properties context=''>
+              <relation connection='excel-direct.1gvrcj10aj19yp1af4cqw1nzofog' name='dim_rate_codes' table='[dim_rate_codes$]' type='table'>
+                <columns gridOrigin='A1:C6:no:A1:C6:0' header='yes' outcome='6'>
+                  <column datatype='string' name='rate_code_id' ordinal='0' />
+                  <column datatype='string' name='rate_name' ordinal='1' />
+                  <column datatype='boolean' name='is_commissionable' ordinal='2' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+          <object caption='dim_room_types' id='dim!room!types_78108E0DEBAA4E188BD3C010229D8E10'>
+            <properties context=''>
+              <relation connection='excel-direct.1gvrcj10aj19yp1af4cqw1nzofog' name='dim_room_types' table='[dim_room_types$]' type='table'>
+                <columns gridOrigin='A1:C4:no:A1:C4:0' header='yes' outcome='6'>
+                  <column datatype='string' name='room_type_id' ordinal='0' />
+                  <column datatype='string' name='room_type_name' ordinal='1' />
+                  <column datatype='integer' name='base_price' ordinal='2' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+          <object caption='dim_segments' id='dim!segments_F6676F78A79A4DC99FFE0798B8515310'>
+            <properties context=''>
+              <relation connection='excel-direct.1gvrcj10aj19yp1af4cqw1nzofog' name='dim_segments' table='[dim_segments$]' type='table'>
+                <columns gridOrigin='A1:B4:no:A1:B4:0' header='yes' outcome='6'>
+                  <column datatype='string' name='segment_id' ordinal='0' />
+                  <column datatype='string' name='segment_name' ordinal='1' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+          <object caption='fact_booking' id='fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A'>
+            <properties context=''>
+              <relation connection='excel-direct.1gvrcj10aj19yp1af4cqw1nzofog' name='fact_booking' table='[fact_booking$]' type='table'>
+                <columns gridOrigin='A1:P1001:no:A1:P1001:0' header='yes' outcome='6'>
+                  <column datatype='string' name='booking_id' ordinal='0' />
+                  <column datatype='string' name='guest_id' ordinal='1' />
+                  <column datatype='date' name='booking_date' ordinal='2' />
+                  <column datatype='date' name='check_in_date' ordinal='3' />
+                  <column datatype='date' name='check_out_date' ordinal='4' />
+                  <column datatype='string' name='room_type_id' ordinal='5' />
+                  <column datatype='string' name='rate_code_id' ordinal='6' />
+                  <column datatype='string' name='channel_id' ordinal='7' />
+                  <column datatype='string' name='segment_id' ordinal='8' />
+                  <column datatype='string' name='status' ordinal='9' />
+                  <column datatype='integer' name='gross_room_revenue' ordinal='10' />
+                  <column datatype='real' name='commission_amount' ordinal='11' />
+                  <column datatype='real' name='net_room_revenue' ordinal='12' />
+                  <column datatype='integer' name='number_of_rooms' ordinal='13' />
+                  <column datatype='integer' name='adults_count' ordinal='14' />
+                  <column datatype='integer' name='children_count' ordinal='15' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+          <object caption='fact_marketing_spend' id='fact!marketing!spend_EA717D15944149E694C40D0F1CAA7F4F'>
+            <properties context=''>
+              <relation connection='excel-direct.1gvrcj10aj19yp1af4cqw1nzofog' name='fact_marketing_spend' table='[fact_marketing_spend$]' type='table'>
+                <columns gridOrigin='A1:F101:no:A1:F101:0' header='yes' outcome='6'>
+                  <column datatype='string' name='spend_id' ordinal='0' />
+                  <column datatype='date' name='spend_date' ordinal='1' />
+                  <column datatype='string' name='channel_id' ordinal='2' />
+                  <column datatype='string' name='platform' ordinal='3' />
+                  <column datatype='integer' name='cost_amount' ordinal='4' />
+                  <column datatype='integer' name='clicks' ordinal='5' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[channel_id]' />
+              <expression op='[channel_id (dim!channels)]' />
+            </expression>
+            <first-end-point object-id='fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A' />
+            <second-end-point object-id='dim!channels_C3FB11FBFCA04D25B9C97E008F717F45' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[rate_code_id]' />
+              <expression op='[rate_code_id (dim!rate!codes)]' />
+            </expression>
+            <first-end-point object-id='fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A' />
+            <second-end-point object-id='dim!rate!codes_C97543094E654677B5BBD108C51C21A5' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[room_type_id]' />
+              <expression op='[room_type_id (dim!room!types)]' />
+            </expression>
+            <first-end-point object-id='fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A' />
+            <second-end-point object-id='dim!room!types_78108E0DEBAA4E188BD3C010229D8E10' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[segment_id]' />
+              <expression op='[segment_id (dim!segments)]' />
+            </expression>
+            <first-end-point object-id='fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A' />
+            <second-end-point object-id='dim!segments_F6676F78A79A4DC99FFE0798B8515310' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[channel_id]' />
+              <expression op='[channel_id (fact!marketing!spend)]' />
+            </expression>
+            <first-end-point object-id='fact!booking_4F576EA9F12D469CACF7485FB9EF5A8A' />
+            <second-end-point object-id='fact!marketing!spend_EA717D15944149E694C40D0F1CAA7F4F' />
+          </relationship>
+        </relationships>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <actions>
+    <action caption='Filter 1 (generated)' name='[Action1_4F120978A6114B38B9001747A35CACF3]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Dashboard 1' type='sheet' worksheet='Net ADR Comparison' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Dashboard 1' />
+      </command>
+    </action>
+    <action caption='Filter 2 (generated)' name='[Action2_D3D8973653AF43029846E36155560DFB]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Dashboard 1' type='sheet' worksheet='Marketing Cost vs OTA Commission Benchmark' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Dashboard 1' />
+      </command>
+    </action>
+    <action caption='Filter 3 (generated)' name='[Action3_9081F20EE5B74E7F8FF837DEBF61ED57]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Dashboard 1' type='sheet' worksheet='Leisure Suite Bookings by Channel' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Dashboard 1' />
+      </command>
+    </action>
+  </actions>
+  <worksheets>
+    <worksheet name='Days of Booking'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Days of Booking&#10;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='fact_booking+ (data)' name='federated.0iio7wz0azduz60ziqu6h08nmyu7' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0iio7wz0azduz60ziqu6h08nmyu7'>
+            <column caption='Booking Date' datatype='date' name='[booking_date]' role='dimension' type='ordinal' />
+            <column caption='Number Of Rooms' datatype='integer' name='[number_of_rooms]' role='measure' type='quantitative' />
+            <column-instance column='[number_of_rooms]' derivation='Sum' name='[sum:number_of_rooms:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[booking_date]' derivation='Weekday' name='[wd:booking_date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[wd:booking_date:ok]'>
+            <groupfilter function='level-members' level='[wd:booking_date:ok]' />
+          </filter>
+          <slices>
+            <column>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[wd:booking_date:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[wd:booking_date:ok]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:number_of_rooms:qk]</rows>
+        <cols>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[wd:booking_date:ok]</cols>
+        <mark-labels>
+          <mark-label id='0' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[wd:booking_date:ok]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:number_of_rooms:qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:number_of_rooms:qk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[wd:booking_date:ok]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>177</value>
+                <value>7</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='1' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[wd:booking_date:ok]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:number_of_rooms:qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:number_of_rooms:qk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[wd:booking_date:ok]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>225</value>
+                <value>6</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='2' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[wd:booking_date:ok]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:number_of_rooms:qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:number_of_rooms:qk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[wd:booking_date:ok]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>233</value>
+                <value>5</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='3' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[wd:booking_date:ok]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:number_of_rooms:qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:number_of_rooms:qk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[wd:booking_date:ok]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>239</value>
+                <value>4</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='4' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[wd:booking_date:ok]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:number_of_rooms:qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:number_of_rooms:qk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[wd:booking_date:ok]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>207</value>
+                <value>3</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='5' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[wd:booking_date:ok]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:number_of_rooms:qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:number_of_rooms:qk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[wd:booking_date:ok]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>207</value>
+                <value>2</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='6' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[wd:booking_date:ok]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:number_of_rooms:qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:number_of_rooms:qk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[wd:booking_date:ok]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>215</value>
+                <value>1</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+        </mark-labels>
+      </table>
+      <simple-id uuid='{50F48FC3-C374-48B4-A880-8DC4BCBF2472}' />
+    </worksheet>
+    <worksheet name='Leisure Suite Bookings by Channel'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='fact_booking+ (data)' name='federated.0iio7wz0azduz60ziqu6h08nmyu7' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0iio7wz0azduz60ziqu6h08nmyu7'>
+            <column caption='Channel Name' datatype='string' name='[channel_name]' role='dimension' type='nominal' />
+            <column caption='Commission Amount' datatype='real' name='[commission_amount]' role='measure' type='quantitative' />
+            <column-instance column='[channel_name]' derivation='None' name='[none:channel_name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[room_type_name]' derivation='None' name='[none:room_type_name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[segment_name]' derivation='None' name='[none:segment_name:nk]' pivot='key' type='nominal' />
+            <column caption='Room Type Name' datatype='string' name='[room_type_name]' role='dimension' type='nominal' />
+            <column caption='Segment Name' datatype='string' name='[segment_name]' role='dimension' type='nominal' />
+            <column-instance column='[commission_amount]' derivation='Sum' name='[sum:commission_amount:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Action (Channel Name)]'>
+            <groupfilter function='level-members' level='[channel_name]' user:ui-action-filter='[Action1_4F120978A6114B38B9001747A35CACF3]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <manual-sort column='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;Expedia&quot;</bucket>
+              <bucket>&quot;Agoda&quot;</bucket>
+              <bucket>&quot;Booking.com&quot;</bucket>
+              <bucket>&quot;Direct Website&quot;</bucket>
+              <bucket>&quot;Corporate&quot;</bucket>
+              <bucket>%all%</bucket>
+            </dictionary>
+          </manual-sort>
+          <filter class='categorical' column='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:room_type_name:nk]'>
+            <groupfilter function='member' level='[none:room_type_name:nk]' member='&quot;Suite&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:segment_name:nk]'>
+            <groupfilter function='member' level='[none:segment_name:nk]' member='&quot;Leisure&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:room_type_name:nk]</column>
+            <column>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:segment_name:nk]</column>
+            <column>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Action (Channel Name)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='width' field='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:commission_amount:qk]' value='72' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='width' value='182' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:commission_amount:qk]' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-sequential'>
+                <color>#f1f1f1</color>
+                <color>#dde3e9</color>
+                <color>#cad5e2</color>
+                <color>#b7c8da</color>
+                <color>#a6bcd3</color>
+                <color>#95afcc</color>
+                <color>#85a4c4</color>
+                <color>#7698bd</color>
+                <color>#688db5</color>
+                <color>#5a83ae</color>
+                <color>#4e79a7</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:commission_amount:qk]</rows>
+        <cols />
+        <mark-labels>
+          <mark-label id='0' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:commission_amount:qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:commission_amount:qk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Booking.com&quot;</value>
+                <value>1485.0</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='1' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:commission_amount:qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:commission_amount:qk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Agoda&quot;</value>
+                <value>1827.5</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='2' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:commission_amount:qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[sum:commission_amount:qk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Expedia&quot;</value>
+                <value>2400.0</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+        </mark-labels>
+      </table>
+      <simple-id uuid='{A1635431-EF04-4F37-B853-848A41BA11C4}' />
+    </worksheet>
+    <worksheet name='Marketing Cost vs OTA Commission Benchmark'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='fact_booking+ (data)' name='federated.0iio7wz0azduz60ziqu6h08nmyu7' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0iio7wz0azduz60ziqu6h08nmyu7'>
+            <column caption='Marketing Cost %' datatype='real' name='[Calculation_0759001529556994]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([cost_amount]) / SUM([Calculation_0759001529856003])' />
+            </column>
+            <column caption='Total Direct Revenue' datatype='integer' name='[Calculation_0759001529856003]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF [channel_name] = &quot;Direct Website&quot; THEN [gross_room_revenue] ELSE 0 END' />
+            </column>
+            <column caption='Channel Name' datatype='string' name='[channel_name]' role='dimension' type='nominal' />
+            <column caption='Cost Amount' datatype='integer' name='[cost_amount]' role='measure' type='quantitative' />
+            <column caption='Gross Room Revenue' datatype='integer' name='[gross_room_revenue]' role='measure' type='quantitative' />
+            <column-instance column='[channel_name]' derivation='None' name='[none:channel_name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[platform]' derivation='None' name='[none:platform:nk]' pivot='key' type='nominal' />
+            <column caption='Platform' datatype='string' name='[platform]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_0759001529556994]' derivation='User' name='[usr:Calculation_0759001529556994:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Action (Channel Name)]'>
+            <groupfilter function='level-members' level='[channel_name]' user:ui-action-filter='[Action1_4F120978A6114B38B9001747A35CACF3]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]'>
+            <groupfilter function='level-members' level='[none:channel_name:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='quantitative' column='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001529556994:qk]' included-values='non-null' />
+          <slices>
+            <column>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]</column>
+            <column>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Action (Channel Name)]</column>
+            <column>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001529556994:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:platform:nk]' value='156' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='fill-above' id='refline0' value='#00000000' />
+            <format attr='fill-below' id='refline0' value='#00000000' />
+            <format attr='fill-above' id='refline1' value='#00000000' />
+            <format attr='fill-below' id='refline1' value='#00000000' />
+            <format attr='stroke-size' id='refline1' value='5' />
+            <format attr='stroke-color' id='refline1' value='#e15759' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:platform:nk]' />
+            </encodings>
+            <reference-line axis-column='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001529556994:qk]' enable-instant-analytics='true' formula='average' id='refline0' label-type='automatic' probability='95' scope='per-table' value-column='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001529556994:qk]' z-order='1' />
+            <reference-line axis-column='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001529556994:qk]' enable-instant-analytics='true' formula='constant' id='refline1' label-type='automatic' scope='per-table' value='0.17999999999999999' value-column='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001529556994:qk]' z-order='2' />
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001529556994:qk]</rows>
+        <cols>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:platform:nk]</cols>
+        <mark-labels>
+          <mark-label id='0' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:platform:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001529556994:qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:platform:nk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001529556994:qk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Instagram&quot;</value>
+                <value>0.19915944540727903</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='1' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:platform:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001529556994:qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:platform:nk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001529556994:qk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Google Ads&quot;</value>
+                <value>0.13182842287694974</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='2' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:platform:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001529556994:qk]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:platform:nk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001529556994:qk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Facebook&quot;</value>
+                <value>0.14462738301559791</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+        </mark-labels>
+      </table>
+      <simple-id uuid='{958290FB-BE73-4E70-B9CD-6E7C6F5ED372}' />
+    </worksheet>
+    <worksheet name='Net ADR Comparison'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontcolor='#000000' fontname='Benton Sans Book'>Net ADR Comparison</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='fact_booking+ (data)' name='federated.0iio7wz0azduz60ziqu6h08nmyu7' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0iio7wz0azduz60ziqu6h08nmyu7'>
+            <column caption='Gross ADR' datatype='real' name='[Calculation_0759001505918976]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([gross_room_revenue]) / SUM([number_of_rooms])' />
+            </column>
+            <column caption='Net ADR' datatype='real' name='[Calculation_0759001506070529]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([net_room_revenue]) / SUM([number_of_rooms])' />
+            </column>
+            <column caption='Channel Name' datatype='string' name='[channel_name]' role='dimension' type='nominal' />
+            <column caption='Gross Room Revenue' datatype='integer' name='[gross_room_revenue]' role='measure' type='quantitative' />
+            <column caption='Net Room Revenue' datatype='real' name='[net_room_revenue]' role='measure' type='quantitative' />
+            <column-instance column='[channel_name]' derivation='None' name='[none:channel_name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[status]' derivation='None' name='[none:status:nk]' pivot='key' type='nominal' />
+            <column caption='Number Of Rooms' datatype='integer' name='[number_of_rooms]' role='measure' type='quantitative' />
+            <column caption='Status' datatype='string' name='[status]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_0759001505918976]' derivation='User' name='[usr:Calculation_0759001505918976:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_0759001506070529]' derivation='User' name='[usr:Calculation_0759001506070529:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001505918976:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001506070529:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001505918976:qk]&quot;</bucket>
+              <bucket>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001506070529:qk]&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <filter class='categorical' column='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Action (Channel Name)]'>
+            <groupfilter function='level-members' level='[channel_name]' user:ui-action-filter='[Action3_9081F20EE5B74E7F8FF837DEBF61ED57]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:status:nk]'>
+            <groupfilter function='member' level='[none:status:nk]' member='&quot;Checked-Out&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:status:nk]</column>
+            <column>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Action (Channel Name)]</column>
+            <column>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]' value='105' />
+            <format attr='text-format' field='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001505918976:qk]' value='' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='color' value='#000000' />
+            <format attr='text-format' field='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]' value='' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]' />
+            </encodings>
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</rows>
+        <cols>([federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk] / [federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names])</cols>
+        <mark-labels>
+          <mark-label id='0' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]</field>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Agoda&quot;</value>
+                <value>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001505918976:qk]&quot;</value>
+                <value>302.55102040816325</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='1' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]</field>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Agoda&quot;</value>
+                <value>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001506070529:qk]&quot;</value>
+                <value>263.69387755102042</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='2' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]</field>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Booking.com&quot;</value>
+                <value>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001506070529:qk]&quot;</value>
+                <value>301.74193548387098</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='3' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]</field>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Booking.com&quot;</value>
+                <value>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001505918976:qk]&quot;</value>
+                <value>333.87096774193549</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='4' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]</field>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Corporate&quot;</value>
+                <value>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001506070529:qk]&quot;</value>
+                <value>317.44186046511629</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='5' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]</field>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Corporate&quot;</value>
+                <value>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001505918976:qk]&quot;</value>
+                <value>317.44186046511629</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='6' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]</field>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Direct Website&quot;</value>
+                <value>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001506070529:qk]&quot;</value>
+                <value>331.89655172413791</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='7' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]</field>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Direct Website&quot;</value>
+                <value>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001505918976:qk]&quot;</value>
+                <value>331.89655172413791</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='8' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]</field>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Expedia&quot;</value>
+                <value>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001506070529:qk]&quot;</value>
+                <value>316.78899082568807</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='9' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]</field>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Expedia&quot;</value>
+                <value>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001505918976:qk]&quot;</value>
+                <value>355.9633027522936</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+        </mark-labels>
+      </table>
+      <simple-id uuid='{6C5B6FA3-1EF5-4EF3-8D4A-441118D516FB}' />
+    </worksheet>
+    <worksheet name='ราคาเฉลี่ยเเต่ละห้อง'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>ราคาเฉลี่ยเเต่ละห้อง&#10;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='fact_booking+ (data)' name='federated.0iio7wz0azduz60ziqu6h08nmyu7' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0iio7wz0azduz60ziqu6h08nmyu7'>
+            <column caption='Gross ADR' datatype='real' name='[Calculation_0759001505918976]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([gross_room_revenue]) / SUM([number_of_rooms])' />
+            </column>
+            <column caption='Net ADR' datatype='real' name='[Calculation_0759001506070529]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([net_room_revenue]) / SUM([number_of_rooms])' />
+            </column>
+            <column caption='Gross Room Revenue' datatype='integer' name='[gross_room_revenue]' role='measure' type='quantitative' />
+            <column caption='Net Room Revenue' datatype='real' name='[net_room_revenue]' role='measure' type='quantitative' />
+            <column-instance column='[room_type_name]' derivation='None' name='[none:room_type_name:nk]' pivot='key' type='nominal' />
+            <column caption='Number Of Rooms' datatype='integer' name='[number_of_rooms]' role='measure' type='quantitative' />
+            <column caption='Room Type Name' datatype='string' name='[room_type_name]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_0759001505918976]' derivation='User' name='[usr:Calculation_0759001505918976:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_0759001506070529]' derivation='User' name='[usr:Calculation_0759001506070529:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001505918976:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001506070529:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:room_type_name:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;Standard&quot;</bucket>
+              <bucket>&quot;Deluxe&quot;</bucket>
+              <bucket>&quot;Suite&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <slices>
+            <column>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]' value='130' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]' />
+            </encodings>
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</rows>
+        <cols>([federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:room_type_name:nk] / [federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names])</cols>
+        <mark-labels>
+          <mark-label id='0' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:room_type_name:nk]</field>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:room_type_name:nk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Standard&quot;</value>
+                <value>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001506070529:qk]&quot;</value>
+                <value>188.19924812030075</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='1' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:room_type_name:nk]</field>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:room_type_name:nk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Standard&quot;</value>
+                <value>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001505918976:qk]&quot;</value>
+                <value>199.81203007518798</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='2' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:room_type_name:nk]</field>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:room_type_name:nk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Deluxe&quot;</value>
+                <value>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001506070529:qk]&quot;</value>
+                <value>281.76483050847457</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='3' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:room_type_name:nk]</field>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:room_type_name:nk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Deluxe&quot;</value>
+                <value>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001505918976:qk]&quot;</value>
+                <value>301.27118644067798</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='4' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:room_type_name:nk]</field>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:room_type_name:nk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Suite&quot;</value>
+                <value>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001506070529:qk]&quot;</value>
+                <value>470.61122244488979</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='5' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:room_type_name:nk]</field>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:room_type_name:nk]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]</field>
+                  <field>[federated.0iio7wz0azduz60ziqu6h08nmyu7].[Multiple Values]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Suite&quot;</value>
+                <value>&quot;[federated.0iio7wz0azduz60ziqu6h08nmyu7].[usr:Calculation_0759001505918976:qk]&quot;</value>
+                <value>500.0</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+        </mark-labels>
+      </table>
+      <simple-id uuid='{3D36741B-7418-452E-9A36-19959E108DB4}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='Dashboard 1'>
+      <style />
+      <size maxheight='768' maxwidth='1366' minheight='768' minwidth='1366' preset-index='0' sizing-mode='fixed' />
+      <zones>
+        <zone h='100000' id='2' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='97916' id='17' param='horz' type-v2='layout-flow' w='98828' x='586' y='1042'>
+            <zone h='97916' id='15' type-v2='layout-basic' w='98828' x='586' y='1042'>
+              <zone h='97916' id='5' param='horz' type-v2='layout-flow' w='98828' x='586' y='1042'>
+                <zone h='97916' id='3' type-v2='layout-basic' w='98828' x='586' y='1042'>
+                  <zone h='80860' id='1' name='Net ADR Comparison' w='54904' x='586' y='18098'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='80860' id='8' name='Leisure Suite Bookings by Channel' w='14203' x='55490' y='18098'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='80860' id='10' name='Marketing Cost vs OTA Commission Benchmark' w='29721' x='69693' y='18098'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='17056' id='9' name='Leisure Suite Bookings by Channel' pane-specification-id='0' param='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]' type-v2='color' w='14203' x='55490' y='1042'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='17056' id='7' name='Net ADR Comparison' pane-specification-id='0' param='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]' type-v2='color' w='54904' x='586' y='1042'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='17056' id='11' name='Marketing Cost vs OTA Commission Benchmark' pane-specification-id='0' param='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:platform:nk]' type-v2='color' w='29721' x='69693' y='1042'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1100' minheight='1100' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='27' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97916' id='26' param='vert' type-v2='layout-flow' w='98828' x='586' y='1042'>
+                <zone fixed-size='280' h='80860' id='1' is-fixed='true' name='Net ADR Comparison' w='54904' x='586' y='18098'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='17056' id='7' name='Net ADR Comparison' pane-specification-id='0' param='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]' type-v2='color' w='54904' x='586' y='1042'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='80860' id='8' is-fixed='true' name='Leisure Suite Bookings by Channel' w='14203' x='55490' y='18098'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='17056' id='9' name='Leisure Suite Bookings by Channel' pane-specification-id='0' param='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]' type-v2='color' w='14203' x='55490' y='1042'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='80860' id='10' is-fixed='true' name='Marketing Cost vs OTA Commission Benchmark' w='29721' x='69693' y='18098'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='17056' id='11' name='Marketing Cost vs OTA Commission Benchmark' pane-specification-id='0' param='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:platform:nk]' type-v2='color' w='29721' x='69693' y='1042'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{4171EB7C-9127-47F6-866D-58E71F0767D8}' />
+    </dashboard>
+    <dashboard enable-sort-zone-taborder='true' name='Dashboard 2'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones>
+        <zone h='100000' id='2' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='5' param='horz' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='98000' id='3' type-v2='layout-basic' w='82400' x='800' y='1000'>
+              <zone h='98000' id='1' name='Marketing Cost vs OTA Commission Benchmark' w='82400' x='800' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone fixed-size='160' h='98000' id='4' is-fixed='true' param='vert' type-v2='layout-flow' w='16000' x='83200' y='1000'>
+              <zone h='10750' id='6' name='Marketing Cost vs OTA Commission Benchmark' pane-specification-id='0' param='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:platform:nk]' type-v2='color' w='16000' x='83200' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='12' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='11' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+                <zone fixed-size='280' h='98000' id='1' is-fixed='true' name='Marketing Cost vs OTA Commission Benchmark' w='82400' x='800' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='10750' id='6' name='Marketing Cost vs OTA Commission Benchmark' pane-specification-id='0' param='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:platform:nk]' type-v2='color' w='16000' x='83200' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{33CC58BB-34D4-4E99-BF4A-D2F645BCCCCB}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' name='Net ADR Comparison'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='measures' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{6F5E21B3-48F6-430F-B642-E46BB6D4FFCC}' />
+    </window>
+    <window class='worksheet' name='Leisure Suite Bookings by Channel'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:channel_name:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{78A57A13-2CC2-4B29-8DB8-6C193A91ACB6}' />
+    </window>
+    <window class='worksheet' name='Marketing Cost vs OTA Commission Benchmark'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[none:platform:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{B966508A-B4C4-4083-B7E9-4C055F6D6055}' />
+    </window>
+    <window class='worksheet' name='ราคาเฉลี่ยเเต่ละห้อง'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{06BB773A-77E1-4008-8AA7-35FDE3906C60}' />
+    </window>
+    <window class='worksheet' name='Days of Booking'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[wd:booking_date:ok]' type='filter' />
+            <card pane-specification-id='0' param='[federated.0iio7wz0azduz60ziqu6h08nmyu7].[wd:booking_date:ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{EAF3E618-33D7-41C6-8D9B-206C727AD487}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='Leisure Suite Bookings by Channel'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Marketing Cost vs OTA Commission Benchmark'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Net ADR Comparison'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='1' />
+      <simple-id uuid='{FD0F99B2-231B-43E9-B715-5007DD9D7BA6}' />
+    </window>
+    <window class='dashboard' name='Dashboard 2'>
+      <viewpoints>
+        <viewpoint name='Marketing Cost vs OTA Commission Benchmark'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{ADBD751C-E506-4A4C-84A5-092EB0C7911D}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Dashboard 1' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Dashboard 2' width='192'>
+      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
+      D64fTdTfZeB/AAAAAElFTkSuQmCC
+    </thumbnail>
+    <thumbnail height='192' name='Days of Booking' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='ราคาเฉลี่ยเเต่ละห้อง' width='192'>
+      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
+      A2qU9JsketWFAAAAAElFTkSuQmCC
+    </thumbnail>
+  </thumbnails>
+</workbook>
