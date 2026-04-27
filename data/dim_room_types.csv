@@ -1,0 +1,4 @@
+room_type_id,room_type_name,base_price
+RM01,Standard,100
+RM02,Deluxe,150
+RM03,Suite,250

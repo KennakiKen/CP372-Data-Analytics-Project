@@ -1,0 +1,6 @@
+rate_code_id,rate_name,is_commissionable
+RT01,Standard Rate,True
+RT02,Non-Refundable,True
+RT03,Corporate Rate,False
+RT04,Package Deal,True
+RT05,Wholesale Net Rate,False

@@ -1,0 +1,6 @@
+channel_id,channel_name,channel_type,commission_model,default_commission_rate,contract_owner
+CH01,Booking.com,OTA,Percentage,0.18,Alice
+CH02,Expedia,OTA,Percentage,0.2,Bob
+CH03,Agoda,OTA,Percentage,0.17,Charlie
+CH04,Direct Website,Direct,Flat Fee,0.0,Internal
+CH05,Corporate,Offline,Net Rate,0.0,David
